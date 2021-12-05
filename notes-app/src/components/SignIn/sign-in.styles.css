@@ -1,0 +1,63 @@
+.sign-in {
+    text-align: center;
+    margin: auto;
+    width: 350px;
+    height: 350px;
+    box-shadow: 6px 6px 10px 0 rgb(0 0 0 / 20%);
+    margin-top: 9em;
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(360deg, #dee1e1 10%, #f4f4f4 360%);
+    border-radius: 1em;
+    border: solid rgb(216, 216, 216) 1px;
+}
+
+.h2 {
+    padding: 0.5em 0;
+    letter-spacing: 2px;
+    font-family: 'Dancing Script', cursive;
+}
+
+.container1 {
+    padding: 0.5em;
+}
+
+.btnn {
+    width: 4em;
+    border: solid black 1px;
+    border-radius: 0.3em;
+}
+
+.btnn:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+}
+
+link {
+    color: black;
+}
+
+Link:hover {
+    color: black;
+}
+
+.container4 {
+    padding-top: 0.7em;
+}
+
+.txt {
+    width: 15em;
+    border: solid black 1px;
+    border-radius: 0.4rem;
+}
+
+.txt:hover {
+    background-color: black;
+    color: white;
+    border: solid black 1px;
+    border-radius: 0.4em;
+}
+
+.txt:focus {
+    outline: none;
+}

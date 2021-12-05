@@ -1,0 +1,53 @@
+.new-note-item {
+    padding: 1rem;
+    min-height: 170px;
+    background-color: #ff6262;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 1em;
+}
+
+.ta {
+    display: flex;
+    flex-direction: column;
+}
+
+.ta1 {
+    outline: none;
+    border: none;
+    border-bottom: solid black 1px;
+    background-color: #ff6262;
+    width: 90%;
+}
+
+.ta2 {
+    width: 90%
+}
+
+textarea {
+    border: none;
+    resize: none;
+    background-color: #ff6262;
+    outline: none;
+    border-bottom: solid black 1px;
+    resize: none;
+    overflow: hidden;
+}
+
+.save {
+    background-color: #e1e1e1;
+    border: none;
+    border-radius: 18px;
+    padding: 3px 10px;
+    margin-top: 0.5em;
+}
+
+.save:hover {
+    background-color: #ededed;
+    transform: scale(1.1);
+}
+
+.save:focus {
+    outline: none;
+}

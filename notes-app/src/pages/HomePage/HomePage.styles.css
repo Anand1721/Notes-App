@@ -1,0 +1,10 @@
+.add {
+    position: fixed;
+    bottom: 1em;
+    right: 1em;
+    border-radius: 1.4em;
+}
+
+.img {
+    border-radius: 2.5em;
+}
