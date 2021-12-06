@@ -22,8 +22,8 @@ class NavbarComponent extends Component {
         }
     }
 
-    componentDidMount () {
-        this.setState({ Username: this.props.Username })
+    async componentDidMount () {
+        await this.setState({ Username: this.props.Username })
     }
 
     toggle = (event) => {
@@ -50,6 +50,9 @@ class NavbarComponent extends Component {
         }
         try {
             await fetch('http://127.0.0.1:3000/users/logoutAll', requestOptions)
+            localStorage.setItem('Username', '');
+            localStorage.setItem('token', '');
+            localStorage.setItem('loggedIn', false);
             this.props.history.push("/signin");
         } catch (e) {
             console.log(e)

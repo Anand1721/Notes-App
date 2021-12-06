@@ -20,9 +20,12 @@ class App extends Component {
       Username: localStorage.getItem('Username'),
       token: localStorage.getItem('token')
     })
-    if (localStorage.getItem('token') !== '') {
+    if (localStorage.getItem('Username') !== '' && localStorage.getItem('token') !== '') {
       await this.setState({ loggedIn: true })
       localStorage.setItem('loggedIn', true)
+    } else {
+      await this.setState({ loggedIn: false })
+      localStorage.setItem('loggedIn', false)
     }
   }
 
@@ -43,8 +46,9 @@ class App extends Component {
       await this.setState({ Username: uname })
       localStorage.setItem('Username', uname)
     } else {
-      await this.setState({ Username: uname })
-      localStorage.setItem('Username', uname)
+      await this.setState({ Username: '', loggedIn: false })
+      localStorage.setItem('Username', '')
+      localStorage.setItem('loggedIn', false)
     }
   }
 
@@ -53,13 +57,13 @@ class App extends Component {
       <div className="App">
         <Switch>
           <Route exact path="/">
-            {localStorage.getItem('loggedIn') ? <Redirect to="/home" /> : <Redirect to="/signin" /> }
+            {localStorage.getItem('loggedIn') === 'true' ? <Redirect to="/home" /> : <Redirect to="/signin" /> }
           </Route>
           <Route exact path="/home">
-            {localStorage.getItem('loggedIn') ? <HomePage Username={localStorage.getItem('Username')} token={localStorage.getItem('token')} /> : <Redirect to="/signin" /> }
+            {localStorage.getItem('loggedIn') === 'true' ? <HomePage Username={localStorage.getItem('Username')} token={localStorage.getItem('token')} /> : <Redirect to="/signin" /> }
           </Route>
           <Route exact path="/signin" render={() => {
-            return (localStorage.getItem('loggedIn') ? <Redirect to='/home' /> : <SignInPage username={this.username} isLoggedIn={localStorage.getItem('loggedIn')} getToken={this.token} />)
+            return (localStorage.getItem('loggedIn') === 'true' ? <Redirect to='/home' /> : <SignInPage username={this.username} isLoggedIn={localStorage.getItem('loggedIn')} getToken={this.token} />)
           }} />
           <Route exact path="/register" render={() => {
             return <RegisterPage username={this.username} isLoggedIn={localStorage.getItem('loggedIn')} getToken={this.token} />

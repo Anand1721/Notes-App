@@ -23,12 +23,12 @@ class SignIn extends Component {
         try {
             const response = await fetch('http://127.0.0.1:3000/users/login', requestOptions)
             const data = await response.json()
-            this.props.getToken(data.token)
+            await this.props.getToken(data.token)
             if (data.token) {
-                this.props.username(this.state.Username)
-                await this.setState({ Username: '', Password: '', token: data.token })
-                localStorage.setItem('Username', this.state.Username)
+                await this.setState({ Username: data.user.username, Password: '', token: data.token })
+                localStorage.setItem('Username', data.user.username)
                 localStorage.setItem('token', data.token)
+                await this.props.username(data.user.username)
                 this.props.history.push("/home");
             } else {
                 localStorage.setItem('Username', '')
@@ -39,14 +39,14 @@ class SignIn extends Component {
             await this.setState({ Username: '', Password: '', token: '' })
             localStorage.setItem('Username', '')
             localStorage.setItem('token', '')
-            this.props.getToken(undefined)
+            await this.props.getToken(undefined)
             alert("Wrong username/password!")
         }
     }
 
-    handleChange = (event) => {
+    handleChange = async (event) => {
         const { value, name } = event.target
-        this.setState({ [name]: value })
+        await this.setState({ [name]: value })
     }
 
     render () {
