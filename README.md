@@ -10,7 +10,7 @@ A notes app built with React.js, Node.js and MongoDB.
 
 # UI Design
 
-![Notes App](./tree/main/notes-app/public/SS.PNG)
+![Notes App](./blob/main/notes-app/public/SS.png)
 
 # Running Notes App
 
