@@ -76,8 +76,8 @@ class NavbarComponent extends Component {
         }
     }
 
-    handleChange = (value, id) => {
-        this.setState({ [id]: value })
+    handleChange = async (value, id) => {
+        await this.setState({ [id]: value })
     }
 
     handleTestLogin = async (currentPassword) => {
@@ -173,7 +173,7 @@ class NavbarComponent extends Component {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Form id="cstm" className="ms-auto" inline>
                             <MdSearch className="search-icon" size="2.37em" />
-                            <FormControl id="fc" onChange={(event) => this.props.handleSearch(event.target.value)} type="search" placeholder="Search by title..." className="mr-sm-2" />
+                            <FormControl id="fc" onChange={async (event) => await this.props.handleSearch(event.target.value)} type="search" placeholder="Search by title..." className="mr-sm-2" />
                         </Form>
                         <Nav className="ml-auto">
                             <NavDropdown title={<b>Hello, {this.state.Username}</b>} id="basic-nav-dropdown">

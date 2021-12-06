@@ -78,8 +78,8 @@ class HomePage extends Component {
         }
     }
 
-    search = (searchfield) => {
-        this.setState({ search: searchfield.toLowerCase() })
+    search = async (searchfield) => {
+        await this.setState({ search: searchfield.toLowerCase() })
     }
 
     render () {
